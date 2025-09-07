@@ -136,7 +136,7 @@
 `define DATA_BUS_WIDTH_8
 
 // synopsys translate_off
-`include "timescale.v"
+// `include "timescale.v"
 // synopsys translate_on
 
 `include "uart_defines.v"

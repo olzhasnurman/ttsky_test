@@ -19,7 +19,6 @@ project:
   source_files:
     - "tt_um_test_79054.v"
     - "uart_top.v"
-    - "timescale.v"
     - "raminfr.v"
     - "uart_debug_if.v"
     - "uart_defines.v"
@@ -28,7 +27,6 @@ project:
     - "uart_rfifo.v"
     - "uart_sync_flops.v"
     - "uart_tfifo.v"
-    - "uart_top.v"
     - "uart_transmitter.v"
     - "uart_wb.v"
 
