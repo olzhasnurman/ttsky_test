@@ -21,27 +21,38 @@ module tt_um_test_79054 (
 
     wire _unused = &{ena, ui_in, 1'b0};
 
+    assign wb_adr_i = 0;
+    assign wb_dat_i = 0;
+    assign wb_we_i  = 0;
+    assign wb_stb_i = 0;
+    assign wb_cyc_i = 0;
+    assign wb_sel_i = 0;
+    assign cts_pad_i = 0;
+    assign dsr_pad_i = 0;
+    assign ri_pad_i  = 0;
+    assign dcd_pad_i = 0;
+
 
     uart_top UART_TEST (
         .wb_clk_i ( clk ),
-        .wb_rst_i ( ~ rst_n ),
-        .wb_adr_i (  ),
-        .wb_dat_i (  ),
+        .wb_rst_i ( ~ rst_n  ),
+        .wb_adr_i ( wb_adr_i ),
+        .wb_dat_i ( wb_dat_i ),
         .wb_dat_o (  ),
-        .wb_we_i  (  ),
-        .wb_stb_i (  ),
-        .wb_cyc_i (  ),
-        .wb_sel_i (  ),
+        .wb_we_i  ( wb_we_i ),
+        .wb_stb_i ( wb_stb_i ),
+        .wb_cyc_i ( wb_cyc_i ),
+        .wb_sel_i ( wb_sel_i ),
         .wb_ack_o (  ),
         .int_o    (  ),
         .srx_pad_i ( srx_pad_i ),
         .stx_pad_o ( stx_pad_o ),
         .rts_pad_o (  ),
-        .cts_pad_i (  ),
+        .cts_pad_i ( cts_pad_i ),
         .dtr_pad_o (  ),
-        .dsr_pad_i (  ),
-        .ri_pad_i  (  ),
-        .dcd_pad_i (  )
+        .dsr_pad_i ( dsr_pad_i ),
+        .ri_pad_i  ( ri_pad_i ),
+        .dcd_pad_i ( dcd_pad_i )
     );
 
 
