@@ -17,14 +17,16 @@ module tt_um_test_79054 (
     wire srx_pad_i;
     wire reset_n;
 
-
-    assign uo_out = {7'b0, stx_pad_o};
+    /* verilator lint_off UNUSEDSIGNAL */
+    assign uo_out[0] = stx_pad_o;
+    assign uo_out[7:1] = 7'b0;
     assign srx_pad_i = ui_in[0];
     assign reset_n = rst_n;
 
-    assign uio_oe = 0;
-    assign uio_out = 0;
+    assign uio_oe = 8'b0;
+    assign uio_out = 8'b0;
 
+    /* verilator lint_off UNUSEDSIGNAL */
     wire _unused = &{ena, uio_in, ui_in[7:1], uo_out[7:1], uio_out, uio_oe, 1'b0};
 
     // assign wb_adr_i = 0;
@@ -78,8 +80,6 @@ module tt_um_test_79054 (
         .uart_tx    (stx_pad_o)
     );
 
-    /* verilator lint_off UNUSEDSIGNAL */
-    /* verilator lint_on UNDRIVEN */
 
 
 endmodule
