@@ -7,7 +7,7 @@ module uart_apb (
      , input   wire        clk
      , input   wire        in_psel
      , input   wire        in_penable
-     , input   wire [2:0]   in_pprot
+     , input   wire [2:0]  in_pprot
      , output              in_pready
      , output  wire        in_pslverr
      , input   wire [31:0] in_paddr
