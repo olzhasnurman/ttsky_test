@@ -21,8 +21,7 @@ module tt_um_test_79054 (
     assign uio_oe = 0;
     assign uo_out = 0;
 
-    wire _unused;
-    assign _unused = &{ena, ui_in, 1'b0};
+    wire _unused = &{ena, ui_in, 1'b0, uio_in[7:1]};
 
     // assign wb_adr_i = 0;
     // assign wb_dat_i = 0;

@@ -209,7 +209,7 @@ begin
         case ({push, pop})
         2'b10 : if (count<fifo_depth)  // overrun condition
             begin
-                $write("%c", data_in);
+                // $write("%c", data_in);
                 top   <=  top_plus_1;
                 count <=  count + 1'b1;
             end
@@ -219,7 +219,7 @@ begin
                 count  <=  count - 1'b1;
             end
         2'b11 : begin
-                $write("%c", data_in);
+                // $write("%c", data_in);
                 bottom <=  bottom + 1'b1;
                 top    <=  top_plus_1;
                 end
