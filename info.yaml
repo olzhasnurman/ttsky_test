@@ -18,13 +18,21 @@ project:
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "tt_um_test_79054.v"
-
+    - "uart_apb.v"
+    - "raminfr.v"
+    - "uart_defines.v"
+    - "uart_receiver.v"
+    - "uart_regs.v"
+    - "uart_rfifo.v"
+    - "uart_sync_flops.v"
+    - "uart_tfifo.v"
+    - "uart_transmitter.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "srx_pad_i"
+  ui[0]: "uart_rx"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
@@ -34,7 +42,7 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: "stx_pad_o"
+  uo[0]: uart_tx"
   uo[1]: ""
   uo[2]: ""
   uo[3]: ""
