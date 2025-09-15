@@ -13,21 +13,23 @@ module tt_um_test_79054 (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-    wire stx_pad_o;
-    wire srx_pad_i;
-    wire reset_n;
+    wire uart_rx;
+    wire uart_tx;
+    // wire reset_n;
 
     /* verilator lint_off UNUSEDSIGNAL */
-    assign uo_out[0] = stx_pad_o;
+    assign uo_out[0] = uart_tx;
     assign uo_out[7:1] = 7'b0;
-    assign srx_pad_i = ui_in[0];
-    assign reset_n = rst_n;
+    assign uart_rx = ui_in[0];
+
+    assign uart_tx = uart_rx;
+    // assign reset_n = rst_n;
 
     assign uio_oe = 8'b0;
     assign uio_out = 8'b0;
 
     /* verilator lint_off UNUSEDSIGNAL */
-    wire _unused = &{ena, uio_in, ui_in[7:1], uo_out[7:1], uio_out, uio_oe, 1'b0};
+    wire _unused = &{ena, uio_in, ui_in[7:1], uo_out[7:1], uio_out, uio_oe, 1'b0, rst_n};
 
     // assign wb_adr_i = 0;
     // assign wb_dat_i = 0;
@@ -63,22 +65,22 @@ module tt_um_test_79054 (
     //     .dcd_pad_i (  )
     // );
 
-    uart_apb UART_APB (
-        .resetn     (reset_n),
-        .clk        (clk),
-        .in_psel    (),
-        .in_penable (),
-        .in_pprot   (),
-        .in_pready  (),
-        .in_pslverr (),
-        .in_paddr   (),
-        .in_pwrite  (),
-        .in_prdata  (),
-        .in_pwdata  (),
-        .in_pstrb   (),
-        .uart_rx    (srx_pad_i),
-        .uart_tx    (stx_pad_o)
-    );
+    // uart_apb UART_APB (
+    //     .resetn     (reset_n),
+    //     .clk        (clk),
+    //     .in_psel    (),
+    //     .in_penable (),
+    //     .in_pprot   (),
+    //     .in_pready  (),
+    //     .in_pslverr (),
+    //     .in_paddr   (),
+    //     .in_pwrite  (),
+    //     .in_prdata  (),
+    //     .in_pwdata  (),
+    //     .in_pstrb   (),
+    //     .uart_rx    (uart_rx),
+    //     .uart_tx    (uart_tx)
+    // );
 
 
 
