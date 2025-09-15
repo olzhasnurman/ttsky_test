@@ -18,14 +18,14 @@ module tt_um_test_79054 (
     wire reset_n;
 
 
-    assign uio_out = {7'b0, stx_pad_o};
-    assign srx_pad_i = uio_in[0];
+    assign uo_out = {7'b0, stx_pad_o};
+    assign srx_pad_i = ui_in[0];
     assign reset_n = rst_n;
 
     assign uio_oe = 0;
-    assign uo_out = 0;
+    assign uio_out = 0;
 
-    wire _unused = &{ena, ui_in, 1'b0, uio_in[7:1]};
+    wire _unused = &{ena, uio_in, ui_in[7:1], uo_out[7:1], uio_out, uio_oe, 1'b0};
 
     // assign wb_adr_i = 0;
     // assign wb_dat_i = 0;
