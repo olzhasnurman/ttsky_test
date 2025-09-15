@@ -12,7 +12,7 @@ module tt_um_test_79054 (
     input  wire       rst_n     // reset_n - low to reset
 );
     wire stx_pad_o;
-    wire stx_pad_i;
+    wire srx_pad_i;
 
 
     assign uio_out = {7'b0, stx_pad_o};
