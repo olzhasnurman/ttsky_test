@@ -15,12 +15,12 @@ module tt_um_test_79054 (
 );
     wire stx_pad_o;
     wire srx_pad_i;
-    wire reset;
+    wire reset_n;
 
 
     assign uio_out = {7'b0, stx_pad_o};
     assign srx_pad_i = uio_in[0];
-    assign reset = ~ rst_n;
+    assign reset_n = rst_n;
 
     assign uio_oe = 0;
     assign uo_out = 0;
@@ -39,28 +39,44 @@ module tt_um_test_79054 (
     // assign dcd_pad_i = 0;
 
 
-    uart_top UART_TEST (
-        .wb_clk_i ( clk ),
-        .wb_rst_i ( reset ),
-        .wb_adr_i (  ),
-        .wb_dat_i (  ),
-        .wb_dat_o (  ),
-        .wb_we_i  ( ),
-        .wb_stb_i (  ),
-        .wb_cyc_i (  ),
-        .wb_sel_i (  ),
-        .wb_ack_o (  ),
-        .int_o    (  ),
-        .srx_pad_i ( srx_pad_i ),
-        .stx_pad_o ( stx_pad_o ),
-        .rts_pad_o (  ),
-        .cts_pad_i (  ),
-        .dtr_pad_o (  ),
-        .dsr_pad_i (  ),
-        .ri_pad_i  ( ),
-        .dcd_pad_i (  )
-    );
+    // uart_top UART_TEST (
+    //     .wb_clk_i ( clk ),
+    //     .wb_rst_i ( reset ),
+    //     .wb_adr_i (  ),
+    //     .wb_dat_i (  ),
+    //     .wb_dat_o (  ),
+    //     .wb_we_i  ( ),
+    //     .wb_stb_i (  ),
+    //     .wb_cyc_i (  ),
+    //     .wb_sel_i (  ),
+    //     .wb_ack_o (  ),
+    //     .int_o    (  ),
+    //     .srx_pad_i ( srx_pad_i ),
+    //     .stx_pad_o ( stx_pad_o ),
+    //     .rts_pad_o (  ),
+    //     .cts_pad_i (  ),
+    //     .dtr_pad_o (  ),
+    //     .dsr_pad_i (  ),
+    //     .ri_pad_i  ( ),
+    //     .dcd_pad_i (  )
+    // );
 
+    uart_apb UART_APB (
+        .resetn     (reset_n),
+        .clk        (clk),
+        .in_psel    (),
+        .in_penable (),
+        .in_pprot   (),
+        .in_pready  (),
+        .in_pslverr (),
+        .in_paddr   (),
+        .in_pwrite  (),
+        .in_prdata  (),
+        .in_pwdata  (),
+        .in_pstrb   (),
+        .uart_rx    (srx_pad_i),
+        .uart_tx    (stx_pad_o)
+    );
 
     /* verilator lint_off UNUSEDSIGNAL */
     /* verilator lint_on UNDRIVEN */
