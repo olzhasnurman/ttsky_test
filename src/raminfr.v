@@ -1,3 +1,5 @@
+`ifndef _RAMINFR_V_
+`define _RAMINFR_V_
 //////////////////////////////////////////////////////////////////////
 ////                                                              ////
 ////  raminfr.v                                                   ////
@@ -61,7 +63,10 @@
 //
 // CVS Revision History
 //
-// $Log: not supported by cvs2svn $
+// $Log: raminfr.v,v $
+// Revision 1.2  2002/07/29 21:16:18  gorban
+// The uart_defines.v file is included again in sources.
+//
 // Revision 1.1  2002/07/22 23:02:23  gorban
 // Bug Fixes:
 //  * Possible loss of sync and bad reception of stop bit on slow baud rates fixed.
@@ -78,6 +83,10 @@
 //  It outputs 16xbit_clock_rate - the divided clock.
 //  It's disabled by default. Define UART_HAS_BAUDRATE_OUTPUT to use.
 //
+
+// synopsys translate_off
+`timescale 1ns/1ns
+// synopsys translate_on
 
 //Following is the Verilog code for a dual-port RAM with asynchronous read. 
 module raminfr   
@@ -108,4 +117,4 @@ wire  [addr_width-1:0] dpra;
 //  assign spo = ram[a];   
   assign dpo = ram[dpra];   
 endmodule 
-
+`endif

@@ -61,14 +61,16 @@
 //
 // CVS Revision History
 //
-// $Log: not supported by cvs2svn $
+// $Log: uart_sync_flops.v,v $
+// Revision 1.1  2004/05/21 11:43:25  tadejm
+// Added to synchronize RX input to Wishbone clock.
 //
+//
+// synopsys translate_off
+`timescale 1ns/1ns
+// synopsys translate_on
 
-
-// `include "timescale.v"
-
-
-module uart_sync_flops
+module uart_sync_flops #(parameter width=1, parameter init_value=1'b0)
 (
   // internal signals
   rst_i,
@@ -80,8 +82,8 @@ module uart_sync_flops
 );
 
 parameter Tp            = 1;
-parameter width         = 1;
-parameter init_value    = 1'b0;
+// parameter width         = 1;
+// parameter init_value    = 1'b0;
 
 input                           rst_i;                  // reset input
 input                           clk_i;                  // clock input

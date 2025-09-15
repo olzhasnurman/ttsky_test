@@ -1,3 +1,6 @@
+`ifdef _UART_DEFINES_V_
+`else
+	`define _UART_DEFINES_V_
 //////////////////////////////////////////////////////////////////////
 ////                                                              ////
 ////  uart_defines.v                                              ////
@@ -62,7 +65,10 @@
 //
 // CVS Revision History
 //
-// $Log: not supported by cvs2svn $
+// $Log: uart_defines.v,v $
+// Revision 1.14  2003/09/12 07:26:58  dries
+// adjusted comment + define
+//
 // Revision 1.13  2003/06/11 16:37:47  gorban
 // This fixes errors in some cases when data is being read and put to the FIFO at the same time. Patch is submitted by Scott Furman. Update is very recommended.
 //
@@ -239,9 +245,4 @@
 `define VERBOSE_LINE_STATUS 0   // Details about the lsr (line status register)
 `define FAST_TEST   1           // 64/1024 packets are sent
 
-
-
-
-
-
-
+`endif

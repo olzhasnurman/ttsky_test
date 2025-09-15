@@ -59,7 +59,10 @@
 //
 // CVS Revision History
 //
-// $Log: not supported by cvs2svn $
+// $Log: uart_rfifo.v,v $
+// Revision 1.4  2003/07/11 18:20:26  gorban
+// added clearing the receiver fifo statuses on resets
+//
 // Revision 1.3  2003/06/11 16:37:47  gorban
 // This fixes errors in some cases when data is being read and put to the FIFO at the same time. Patch is submitted by Scott Furman. Update is very recommended.
 //
@@ -142,7 +145,7 @@
 //
 
 // synopsys translate_off
-// `include "timescale.v"
+`timescale 1ns/1ns
 // synopsys translate_on
 
 `include "uart_defines.v"
@@ -186,10 +189,10 @@ wire [7:0] data8_out;
 reg	[2:0]	fifo[fifo_depth-1:0];
 
 // FIFO pointers
-reg	[fifo_pointer_w-1:0]	top;
-reg	[fifo_pointer_w-1:0]	bottom;
+reg	[fifo_pointer_w-1:0]	top    = 'h0;
+reg	[fifo_pointer_w-1:0]	bottom = 'h0;
 
-reg	[fifo_counter_w-1:0]	count;
+reg	[fifo_counter_w-1:0]	count  = 'h0;
 reg				overrun;
 
 wire [fifo_pointer_w-1:0] top_plus_1 = top + 1'b1;
@@ -207,9 +210,9 @@ always @(posedge clk or posedge wb_rst_i) // synchronous FIFO
 begin
 	if (wb_rst_i)
 	begin
-		top		<=  0;
-		bottom		<=  1'b0;
-		count		<=  0;
+		top		<=  'b0;
+		bottom		<=  'b0;
+		count		<=  'b0;
 		fifo[0] <=  0;
 		fifo[1] <=  0;
 		fifo[2] <=  0;
@@ -229,9 +232,9 @@ begin
 	end
 	else
 	if (fifo_reset) begin
-		top		<=  0;
-		bottom		<=  1'b0;
-		count		<=  0;
+		top		<=  'b0;
+		bottom		<=  'b0;
+		count		<=  'b0;
 		fifo[0] <=  0;
 		fifo[1] <=  0;
 		fifo[2] <=  0;

@@ -62,7 +62,10 @@
 //
 // CVS Revision History
 //
-// $Log: not supported by cvs2svn $
+// $Log: uart_receiver.v,v $
+// Revision 1.31  2004/06/18 14:46:15  tadejm
+// Brandl Tobias repaired a bug regarding frame error in receiver when brake is received.
+//
 // Revision 1.29  2002/07/29 21:16:18  gorban
 // The uart_defines.v file is included again in sources.
 //
@@ -190,7 +193,7 @@
 //
 
 // synopsys translate_off
-// `include "timescale.v"
+`timescale 1ns/1ns
 // synopsys translate_on
 
 `include "uart_defines.v"

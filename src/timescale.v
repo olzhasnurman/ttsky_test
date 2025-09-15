@@ -1,3 +1,6 @@
+`ifdef _TIME_SCALE_V_
+`else
+	`define _TIME_SCALE_V_
 //////////////////////////////////////////////////////////////////////
 ////                                                              ////
 ////  timescale.v                                                 ////
@@ -62,3 +65,5 @@
 // Timescale define
 
 `timescale 1ns/10ps
+
+`endif
