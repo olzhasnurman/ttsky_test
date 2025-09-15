@@ -2,6 +2,8 @@
 
 
 module tt_um_test_79054 (
+    /* verilator lint_off UNUSEDSIGNAL */
+    /* verilator lint_off UNDRIVEN */
     input  wire [7:0] ui_in,    // Dedicated inputs
     output wire [7:0] uo_out,   // Dedicated outputs
     input  wire [7:0] uio_in,   // IOs: Input path
@@ -56,6 +58,10 @@ module tt_um_test_79054 (
         .ri_pad_i  ( ),
         .dcd_pad_i (  )
     );
+
+
+    /* verilator lint_off UNUSEDSIGNAL */
+    /* verilator lint_on UNDRIVEN */
 
 
 endmodule
