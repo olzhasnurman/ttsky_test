@@ -17,16 +17,16 @@ module tt_um_test_79054 (
     wire uart_tx;
     wire reset_n;
 
-    wire        in_psel   ;
+    wire        in_psel;
     wire        in_penable;
-    wire [2:0]  in_pprot ;
-                in_pready ;
+    wire [2:0]  in_pprot;
+    wire        in_pready;
     wire        in_pslverr;
-    wire [31:0] in_paddr  ;
-    wire        in_pwrite ;
-    wire [31:0] in_prdata ;
-    wire [31:0] in_pwdata ;
-    wire [3:0]  in_pstrb  ;
+    wire [31:0] in_paddr;
+    wire        in_pwrite;
+    wire [31:0] in_prdata;
+    wire [31:0] in_pwdata;
+    wire [3:0]  in_pstrb;
 
     assign in_psel    = 1'b0;
     assign in_penable = 1'b0;
