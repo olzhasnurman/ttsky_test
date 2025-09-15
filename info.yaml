@@ -34,7 +34,7 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "RX"
+  ui[0]: "srx_pad_i"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
@@ -44,7 +44,7 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: "TX"
+  uo[0]: "stx_pad_o"
   uo[1]: ""
   uo[2]: ""
   uo[3]: ""

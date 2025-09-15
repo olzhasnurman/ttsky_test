@@ -15,10 +15,12 @@ module tt_um_test_79054 (
 );
     wire stx_pad_o;
     wire srx_pad_i;
+    wire reset;
 
 
     assign uio_out = {7'b0, stx_pad_o};
     assign srx_pad_i = uio_in[0];
+    assign reset = ~ rst_n;
 
     assign uio_oe = 0;
     assign uo_out = 0;
@@ -39,7 +41,7 @@ module tt_um_test_79054 (
 
     uart_top UART_TEST (
         .wb_clk_i ( clk ),
-        .wb_rst_i ( ~ rst_n  ),
+        .wb_rst_i ( reset ),
         .wb_adr_i (  ),
         .wb_dat_i (  ),
         .wb_dat_o (  ),
