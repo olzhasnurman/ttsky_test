@@ -28,12 +28,12 @@ module tt_um_test_79054 (
     wire [31:0] in_pwdata;
     wire [3:0]  in_pstrb;
 
-    assign in_psel    = 1'b0;
-    assign in_penable = 1'b0;
+    assign in_psel    = 1'b1;
+    assign in_penable = in_pready;
     assign in_pprot   = 1'b0;
     assign in_paddr   = 32'd0;
     assign in_pwrite  = 1'b0;
-    assign in_pwdata  = 32'd0;
+    assign in_pwdata  = in_prdata;
     assign in_pstrb   = 4'b0;
 
 
